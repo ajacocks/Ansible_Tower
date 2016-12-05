@@ -32,7 +32,7 @@ On RHEL/Fedora:
 ```
 Go to the Hashicorp Terraform download site:
 https://www.terraform.io/downloads.html
-Download the 64bit Linux version, and extract the zip file that results, to `/uar/local/bin`.
+Download the 64bit Linux version, and extract the zip file that results, to '/usr/local/bin'.
 ```
 
 Then edit `roles/aws.terraform/vars/main.yml` and fill in the vars with your AWS api info. This role can also provide easy domain name mapping to all the instances if you have a domain registered in AWS Route 53. 
