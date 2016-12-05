@@ -17,43 +17,22 @@ export AWS_SECRET_ACCESS_KEY='****************TFHJw'
 
 
 ## AWS Infrastructure Roles
-Three options for provisioning AWS Infrastucture:
-
-
-### aws.infra.ansible 
-
-To create infrastructure and a Ansible Tower instance via Ansible
-
-```
-ansible-playbook -i inventory aws_infra_ansible.yml --tags "vpc_create" 
-```
-
-To destroy
-
-```
-ansible-playbook -i inventory aws_infra_ansible.yml --tags "vpc_destroy" 
-```
-
-
-### aws.infra.cloudformation
-
-To create infrastructure and a Ansible Tower instance via CloudFormation
-
-```
-ansible-playbook -i inventory aws_infra_cloudformation.yml --tags "cf_create" 
-```
-To destroy
-
-```
-ansible-playbook -i inventory aws_infra_cloudformation.yml --tags "cf_destroy" 
-```
+Here is how you provision the Ansible workshop environment, using Ansible and Terraform.
 
 ### aws.infra.terraform
 
 To create infrastructure and a Ansible Tower instance via Terraform
 
+On Mac OS X:
 ```
 brew install terraform
+```
+
+On RHEL/Fedora:
+```
+Go to the Hashicorp Terraform download site:
+https://www.terraform.io/downloads.html
+Download the 64bit Linux version, and extract the zip file that results, to `/uar/local/bin`.
 ```
 
 Then edit `roles/aws.terraform/vars/main.yml` and fill in the vars with your AWS api info. This role can also provide easy domain name mapping to all the instances if you have a domain registered in AWS Route 53. 
@@ -80,7 +59,8 @@ ansible-playbook -i inventory aws_infra_terraform.yml --tags "tf_create"
 To destroy
 
 ```
-ansible-playbook -i inventory aws_infra_terraform.yml --tags "tf_destroy" 
+cd /tmp/terraform
+terraform destroy
 ```
 
 ## Configure Ansible Tower
